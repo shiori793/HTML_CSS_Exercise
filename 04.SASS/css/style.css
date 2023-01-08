@@ -1,0 +1,307 @@
+* {
+  font-family: "Josefin Sans", sans-serif;
+  color: #bbbbbb;
+  text-align: center;
+  font-weight: 300;
+  box-sizing: border-box; }
+
+html {
+  font-size: 16px; }
+  @media screen and (max-width: 960px) {
+    html {
+      font-size: 12px; } }
+  @media screen and (max-width: 520px) {
+    html {
+      font-size: 8px; } }
+
+body {
+  margin: 0; }
+
+.nunito-font {
+  font-family: "Nunito", sans-serif; }
+
+.header-font {
+  font-family: "Dancing Script", cursive;
+  color: #d3ab55;
+  font-size: 5em;
+  margin-top: 0; }
+
+button:hover, .logo-mark-all:hover {
+  cursor: pointer; }
+
+.normal-button {
+  color: #d3ab55;
+  background-color: rgba(0, 0, 0, 0);
+  border: #d3ab55 1px solid;
+  padding: 1em 2em;
+  font-weight: 400;
+  font-size: 0.9em;
+  letter-spacing: 0.1em; }
+  .normal-button:hover {
+    color: #262626;
+    background-color: #d3ab55;
+    transition: all ease 0.3s; }
+
+header {
+  padding-bottom: 10em;
+  background-image: url("../image/header-photo.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: relative; }
+  header::before {
+    content: '';
+    background-color: black;
+    opacity: 0.7;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0; }
+  header .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    position: absolute;
+    z-index: 1;
+    width: 70%; }
+    header .logo .logo-mark-all {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      header .logo .logo-mark-all .logo-picture {
+        width: 110px;
+        height: auto; }
+      header .logo .logo-mark-all .logo-circle {
+        border: #d3ab55 solid 3px;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0);
+        width: calc($logo-size + 5px);
+        height: calc($logo-size + 5px);
+        position: absolute;
+        top: 1.85em; }
+    header .logo .logo-text h1, header .logo .logo-text h2 {
+      text-align: left;
+      width: 90%; }
+    header .logo .logo-text h1 {
+      font-size: 3em;
+      letter-spacing: 0.05em;
+      margin: 0.3em 0 0 0.5em; }
+    header .logo .logo-text h2 {
+      font-size: 1.5em;
+      letter-spacing: 0.1em;
+      margin: 0.3em 0 0 1em; }
+  header .welcome {
+    position: relative;
+    z-index: 1;
+    top: 40%; }
+    header .welcome h1 {
+      margin: 0.2em 0; }
+    header .welcome h2 {
+      font-size: 2.5em; }
+
+main {
+  background-color: #262626; }
+  main .about {
+    display: flex;
+    padding: 2em 0; }
+    main .about .about-image {
+      width: 40%;
+      position: relative;
+      background-image: url("../image/about-us-img.png");
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-position: right 10em center; }
+      main .about .about-image::before {
+        content: '';
+        background-color: #262626;
+        opacity: 0.4;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0; }
+      @media screen and (max-width: 960px) {
+        main .about .about-image {
+          display: none; } }
+    main .about .about-text {
+      width: 60%; }
+      @media screen and (max-width: 960px) {
+        main .about .about-text {
+          width: 100%; } }
+    main .about h1 {
+      margin-bottom: 0.5em; }
+    main .about h2 {
+      font-size: 2.5em;
+      margin-bottom: 1.3em; }
+    main .about .diversion {
+      color: #d3ab55;
+      font-size: 3.2em;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      margin: 0.5em 0 0 0; }
+    main .about .about-content {
+      font-style: italic;
+      display: block;
+      text-align: justify;
+      text-indent: 3em;
+      font-weight: 400;
+      font-size: 1.1em;
+      margin: 0;
+      word-spacing: 0.2em;
+      padding: 0 2em; }
+  main .menu {
+    display: flex;
+    flex-wrap: wrap; }
+    main .menu .card {
+      width: calc(100% / 3);
+      aspect-ratio: 9 / 8;
+      position: relative;
+      display: table;
+      overflow: hidden; }
+      main .menu .card:hover .menu-content {
+        display: table-cell;
+        animation-name: fadeIn;
+        animation-duration: 1s;
+        animation-timing-function: ease;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: backwards; }
+
+@keyframes fadeIn {
+  from {
+    transform: translateX(-100%); }
+  to {
+    transform: translateX(0); } }
+      main .menu .card::before {
+        content: '';
+        background-color: #262626;
+        opacity: 0.5;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0; }
+      main .menu .card:nth-child(1) {
+        background-image: url("../image/menu-1.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover; }
+      main .menu .card:nth-child(2) {
+        background-image: url("../image/menu-2.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover; }
+      main .menu .card:nth-child(3) {
+        background-image: url("../image/menu-3.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover; }
+      main .menu .card:nth-child(4) {
+        background-image: url("../image/menu-4.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover; }
+      main .menu .card:nth-child(5) {
+        background-image: url("../image/menu-5.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover; }
+      main .menu .card:nth-child(6) {
+        background-image: url("../image/menu-6.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover; }
+      main .menu .card .menu-content {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        vertical-align: middle;
+        display: none; }
+        main .menu .card .menu-content::before {
+          content: '';
+          background-color: #d3ab55;
+          opacity: 0.5;
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0; }
+        main .menu .card .menu-content * {
+          position: relative;
+          z-index: 1;
+          color: #fff; }
+        main .menu .card .menu-content h2 {
+          font-size: 2em;
+          margin: 0; }
+        main .menu .card .menu-content p {
+          font-size: 1.3em;
+          margin: 0; }
+        main .menu .card .menu-content .order-button {
+          background-color: #fff;
+          border-radius: 30px;
+          border: none;
+          color: #d3ab55;
+          font-size: 0.8em;
+          font-weight: 700;
+          width: 10em;
+          height: 50%;
+          padding: 1em 0.5em;
+          margin-top: 3em; }
+
+footer {
+  background-color: #262626;
+  position: relative;
+  height: 80vh;
+  padding: 2em 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  footer .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    position: relative;
+    z-index: 0;
+    width: 100%; }
+    footer .logo .logo-mark-all {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      footer .logo .logo-mark-all .logo-picture {
+        width: 110px;
+        height: auto; }
+      footer .logo .logo-mark-all .logo-circle {
+        border: #d3ab55 solid 3px;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0);
+        width: calc($logo-size + 5px);
+        height: calc($logo-size + 5px);
+        position: absolute;
+        top: 1.85em; }
+    footer .logo .logo-text h1, footer .logo .logo-text h2 {
+      text-align: left;
+      width: 90%; }
+    footer .logo .logo-text h1 {
+      font-size: 3em;
+      letter-spacing: 0.05em;
+      margin: 0.3em 0 0 0.5em; }
+    footer .logo .logo-text h2 {
+      font-size: 1.5em;
+      letter-spacing: 0.1em;
+      margin: 0.3em 0 0 1em; }
+  footer .link i {
+    font-size: 3em;
+    margin: 1.5em 0.3em;
+    transition: all ease 0.5s; }
+    footer .link i:hover {
+      color: #d3ab55; }
+  footer .copy-right {
+    font-size: 1.3em; }

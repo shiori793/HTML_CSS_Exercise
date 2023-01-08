@@ -1,0 +1,368 @@
+$primary-color: #d3ab55;
+$secondary-color: #bbbbbb;
+$background-color: #262626;
+
+$logo-font: 'Nunito', sans-serif;
+$main-font: 'Josefin Sans', sans-serif;
+$header-font: 'Dancing Script', cursive;
+
+$logo-size: 110px;
+$pc-base-font-size: 16px;
+$tablet-base-font-size: 12px;
+$smartphone-base-font-size: 8px;
+
+* {
+    font-family: $main-font;
+    color: $secondary-color;
+    text-align: center;
+    font-weight: 300;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: $pc-base-font-size;
+    @media screen and (max-width: 960px) {
+        font-size: $tablet-base-font-size;
+    }
+    @media screen and (max-width: 520px) {
+        font-size: $smartphone-base-font-size;
+    }
+}
+
+body {
+    margin: 0;
+}
+
+.nunito-font {
+    font-family: $logo-font;
+}
+
+.header-font {
+    font-family: $header-font;
+    color: $primary-color;
+    font-size: 5em;
+    margin-top: 0;
+}
+
+button:hover, .logo-mark-all:hover {
+    cursor: pointer;
+}
+
+.normal-button {
+    color: $primary-color;
+    background-color: rgba(0, 0, 0, 0);
+    border: $primary-color 1px solid;
+    padding: 1em 2em;
+    font-weight: 400;
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
+
+    &:hover {
+        color: $background-color;
+        background-color: $primary-color;
+        transition: all ease 0.3s;
+    }
+}
+
+@mixin logo($position, $z-index, $width) {
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2em;
+        position: $position;
+        z-index: $z-index;
+        width: $width;
+
+        .logo-mark-all {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .logo-picture {
+                width: $logo-size;
+                height: auto;
+            }
+            
+            .logo-circle {
+                border: $primary-color solid 3px;
+                border-radius: 50%;
+                background-color: rgba(0, 0, 0, 0);
+                width: calc($logo-size + 5px);
+                height: calc($logo-size + 5px);
+                position: absolute;
+                top: 1.85em;
+            }
+        }
+        
+        .logo-text {
+            h1, h2 {
+                text-align: left;
+                width: 90%;
+            }
+
+            h1 {
+                font-size: 3em;
+                letter-spacing: 0.05em;
+                margin: 0.3em 0 0 0.5em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+                letter-spacing: 0.1em;
+                margin: 0.3em 0 0 1em;
+            }
+        }
+    }
+}
+
+@mixin mask($color, $opacity){
+    content: '';
+    background-color: $color;
+    opacity: $opacity;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@mixin menu-photo($photo-pass) {
+    background-image: url($photo-pass);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+
+    padding-bottom: 10em;
+    background-image: url('../image/header-photo.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    &::before {
+        @include mask(black, 0.7);
+    }
+
+    @include logo(absolute, 1, 70%);
+
+    .welcome {
+
+        position: relative;
+        z-index: 1;
+        top: 40%;
+
+        h1 {
+            margin: 0.2em 0;
+        }
+
+        h2 {
+            font-size: 2.5em;
+        }
+    }
+}
+
+main {
+
+    background-color: $background-color;
+
+    .about {
+        display: flex;
+        padding: 2em 0;
+
+        .about-image {
+            width: 40%;
+            position: relative;
+            background-image: url('../image/about-us-img.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: right 10em center;
+
+            &::before {
+                @include mask($background-color, 0.4)
+            }
+
+            @media screen and (max-width: 960px) {
+                display: none;
+            }
+        }
+
+        .about-text {
+            width: 60%;
+
+            @media screen and (max-width: 960px) {
+                width: 100%;
+            }
+        }
+
+        h1 {
+            margin-bottom: 0.5em;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 1.3em;
+        }
+        
+        .diversion {
+            color: $primary-color;
+            font-size: 3.2em;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            margin: 0.5em 0 0 0;
+        }
+
+        .about-content {
+            font-style: italic;
+            display: block;
+            text-align: justify;
+            text-indent: 3em;
+            font-weight: 400;
+            font-size: 1.1em;
+            margin: 0;
+            word-spacing: 0.2em;
+            padding: 0 2em;
+        }
+    }
+
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+
+        .card {
+            width: calc(100% / 3);
+            aspect-ratio: 9 / 8;
+            position: relative;
+            display: table;
+            overflow: hidden;
+
+            &:hover {
+                .menu-content {
+                    display: table-cell;
+                    animation-name: fadeIn;
+                    animation-duration: 1s;
+                    animation-timing-function: ease;
+                    animation-delay: 0s;
+                    animation-iteration-count: 1;
+                    animation-direction: normal;
+                    animation-fill-mode: backwards;
+                }
+            }
+
+            @keyframes fadeIn {
+                from {
+                    transform: translateX(-100%);
+                }
+                to {
+                    transform: translateX(0);
+                }
+            }
+
+            &::before{
+                @include mask($background-color, 0.5);
+            }
+
+            &:nth-child(1) {
+                @include menu-photo('../image/menu-1.jpg');
+            }
+    
+            &:nth-child(2) {
+                @include menu-photo('../image/menu-2.jpg');
+            }
+    
+            &:nth-child(3) {
+                @include menu-photo('../image/menu-3.jpg');
+            }
+    
+            &:nth-child(4) {
+                @include menu-photo('../image/menu-4.jpg');
+            }
+    
+            &:nth-child(5) {
+                @include menu-photo('../image/menu-5.jpg');
+            }
+    
+            &:nth-child(6) {
+                @include menu-photo('../image/menu-6.jpg');
+            }
+
+            .menu-content {
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                vertical-align: middle;
+                display: none;
+
+                &::before {
+                    @include mask($primary-color, 0.5);
+                }
+
+                * {
+                    position: relative;
+                    z-index: 1;
+                    color: #fff;
+                }
+
+                h2 {
+                    font-size: 2em;
+                    margin: 0;
+                }
+
+                p {
+                    font-size: 1.3em;
+                    margin: 0;
+                }
+
+                .order-button {
+                    background-color: #fff;
+                    border-radius: 30px;
+                    border: none;
+                    color: $primary-color;
+                    font-size: 0.8em;
+                    font-weight: 700;
+                    width: 10em;
+                    height: 50%;
+                    padding: 1em 0.5em;
+                    margin-top: 3em;
+                }
+            }
+        }        
+    }
+}
+
+footer {
+    background-color: $background-color;
+    position: relative;
+    height: 80vh;
+    padding: 2em 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include logo(relative, 0, 100%);
+
+    .link {
+        i {
+            font-size: 3em;
+            margin: 1.5em 0.3em;
+            transition: all ease 0.5s;
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
+
+        
+    }
+
+    .copy-right {
+        font-size: 1.3em;
+    }
+}
